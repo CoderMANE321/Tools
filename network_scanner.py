@@ -1,4 +1,25 @@
 #!/usr/bin/env python
+"""
+Program Name: network scanner 
+Description: Scans the network and provides the ip and mac address of the network users
+
+
+Options:
+    -i , or --i = ip address
+    --help = argument options
+
+
+Examples:
+    python network_scanner.py -i or --i 
+    python network_scanner.py --help
+
+Requirements:
+    Runs on Python 2 or 3
+
+Author: CoderMANE
+
+Date: 2024-06-09
+"""
 import argparse
 
 import scapy.all as scapy

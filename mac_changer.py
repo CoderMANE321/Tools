@@ -1,5 +1,26 @@
 #!/usr/bin/env python
+"""
+Program Name: mac changer 
+Description: Changes the mac address of given machine ip
 
+
+Options:
+    -i or --i = ip address
+    -m or --mac = mac address
+    --help = argument options
+
+
+Examples:
+    python mac_changer.py -i or --i with -m or --mac
+    python mac_changer.py --help
+
+Requirements:
+    Runs on Python 2 or 3
+
+Author: CoderMANE
+
+Date: 2024-06-09
+"""
 import subprocess
 import optparse
 import re
@@ -10,7 +31,7 @@ def get_arguments():
     parser = optparse.OptionParser()
     # describes options
     parser.add_option("-i", "--interface", dest="interface", help="Interface to change its MAC address")
-    parser.add_option("-m", "--mac", dest="new_mac", help="new MAC address")
+    parser.add_option("-m", "--mac", dest="new_mac", help="New MAC address")
     (options, arguments) = parser.parse_args()
     if not options.interface:
         parser.error("[-] Please specify an interface, use --help for more info.")
