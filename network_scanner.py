@@ -29,12 +29,12 @@ def get_arguments():
     parser = argparse.ArgumentParser()
     # describes options
     parser.add_argument("-i", "--ip", dest="ip", help="Ip to scan")
-
+    # return arguments
     options = parser.parse_args()
     if not options.ip:
         parser.error("[-] Please specify an ip address, use --help for more info.")
     return options
-
+# scans and returns clients into a dictonary
 def scan(ip):
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
@@ -47,7 +47,7 @@ def scan(ip):
         clients_list.append(client_dict)
     return clients_list
 
-
+# handles output
 def print_result(results_list):
     print("IP\t\t\tMAC Address\n----------------------------------------------")
     for client in results_list:

