@@ -2,7 +2,7 @@
 import sys
 import scapy.all as scapy
 import time
-
+# only works in python3 for now, type python3 instead of python file.py
 # collects the mac address 
 def get_mac(ip):
     arp_request = scapy.ARP(pdst=ip)

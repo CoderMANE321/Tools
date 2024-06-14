@@ -2,7 +2,7 @@
 
 import scapy.all as scapy
 from scapy.layers import http
-
+# works in python 2 or 3
 # starts collecting responses from interface
 def sniff(interface):
     scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet)
