@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Program Name: network scanner 
+Program Name: network scanner
 Description: Scans the network and provides the ip and mac address of the network users
 
 
@@ -10,8 +10,9 @@ Options:
 
 
 Examples:
-    python network_scanner.py -i or --i 
+    python network_scanner.py -i or --i
     python network_scanner.py --help
+    python network_scanner -i 192.22.33.123
 
 Requirements:
     Runs on Python 2 or 3

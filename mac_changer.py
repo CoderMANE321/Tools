@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-Program Name: mac changer 
-Description: Changes the mac address of given machine ip
+Program Name: mac changer
 
+Description: Changes the mac address of given machine ip
 
 Options:
     -i or --i = ip address
@@ -39,7 +39,7 @@ def get_arguments():
         parser.error("[-] Please specify an new mac, use --help for more info.")
     return options
 
-# chnages mac address 
+# changes mac address
 def change_mac(interface, new_mac):
     print("[+ Changing MAC address for " + interface + " to " + new_mac)
 

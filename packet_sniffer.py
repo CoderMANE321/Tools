@@ -1,5 +1,24 @@
 #!/usr/bin/env python
+"""
+Program Name: packet_sniffer
 
+Description: scans network for possible login information for HTTP services,
+use ARP spoofer to see information among remote devices
+
+Options:
+    none , use as is
+
+
+Examples:
+    python packet_sniffer.py
+
+Requirements:
+    Runs on Python 2 or 3
+
+Author: CoderMANE
+
+Date: 2024-06-15
+"""
 import scapy.all as scapy
 from scapy.layers import http
 # works in python 2 or 3
