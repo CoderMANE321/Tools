@@ -11,7 +11,7 @@ network scanner lists the current ip and mac of all devices on your current netw
 packet sniffer collects potential credentials of target who visit http websites on your current network
 
 useful commmands
-  ssl_strip
+  -ssl_striping
   bettercap -iface eth0 -caplet hstshijack/hstshijack
   
   -fowarding 
