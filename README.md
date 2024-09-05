@@ -12,6 +12,8 @@ network scanner lists the current ip and mac of all devices on your current netw
 
 packet sniffer collects potential credentials of target who visit http websites on your current network
 
+downlaod_execute_report and wifi pass both report passwords to your email on windows operating systems 
+
 useful commmands
   -ssl_striping
   bettercap -iface eth0 -caplet hstshijack/hstshijack

