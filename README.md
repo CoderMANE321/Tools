@@ -12,7 +12,11 @@ network scanner lists the current ip and mac of all devices on your current netw
 
 packet sniffer collects potential credentials of target who visit http websites on your current network
 
-downlaod_execute_report and wifi pass both report passwords to your email on windows operating systems 
+download_execute_report and wifi pass both report passwords to your email on windows operating systems 
+
+keylogger allows you to log keystrokes and report adjustable lists of information
+
+backdoor simple reverse shell 
 
 useful commmands
   -ssl_striping
@@ -23,3 +27,7 @@ useful commmands
 
   -table creation
   iptables -I FORWARD -j NFQUEUE --queue-num 0
+
+useful exploits:
+  -password sniffing
+  https://github.com/AlessandroZ/LaZagne
