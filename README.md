@@ -18,6 +18,8 @@ keylogger allows you to log keystrokes and report adjustable lists of informatio
 
 backdoor simple reverse shell 
 
+bruteforce allows you to try 14 million common passwords over a network port
+
 useful commmands
   -ssl_striping
   bettercap -iface eth0 -caplet hstshijack/hstshijack

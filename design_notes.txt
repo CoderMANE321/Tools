@@ -1,0 +1,14 @@
+# for current designs
+bruteforce.py
+start a shell
+attempt ssh connection using argument[name of user]
+run script
+
+uses million passwords txt.
+use 2 threads only to speed up parsing avoid complex issues such as race conditions and locking threads 
+"
+function
+@ params name of user
+returns
+password and True or False
+"
