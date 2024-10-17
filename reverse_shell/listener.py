@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#this is attacker file
 import socket
 import json
 import base64
@@ -63,5 +63,5 @@ class Listener:
             print(command_result)
 
 
-my_listener = Listener("local ip", port)
+my_listener = Listener("your ip", 4444)
 my_listener.run()
