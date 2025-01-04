@@ -3,7 +3,9 @@
 import requests
 
 target_url = "google.com"
-
+"""
+    sends a request to the target url and crawls the website for subdomains and directories
+"""
 def request(url):
     try:
         return requests.get("http://" + url)

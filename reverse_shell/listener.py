@@ -3,7 +3,9 @@
 import socket
 import json
 import base64
-
+"""
+This is a listener file that will be used to listen for incoming connections from the backdoor.
+"""
 class Listener:
     def __init__(self, ip, port):
         self.listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
