@@ -35,7 +35,10 @@ web_bruteforce allows you to test multiple passwords agaisnt a know username
 
 spider recursively checks root directory for all links hosted by server
 
-bruteforce allows you to try 14 million common passwords over a network port
+bruteforce allows you to try 14 million common passwords over a network port(SSH focused)
+
+vulnerability_scanner template scanner that comes built in with XSS
+!more vulnerabilties will be added or you can add your own to test, similiar to YARN and adding rules
 
 useful commmands
   -ssl_striping
