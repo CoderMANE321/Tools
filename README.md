@@ -26,7 +26,12 @@ backdoor simple reverse shell
 !use pyinstaller to diguise file with flags --add-data "path/to/fakefile", -- and --icon "path/to/icon" 
 !use character right to left overide and rename exectuable as "filename'fdp.exe'" and paste character over single quotes
 
-crawler checks subdomains andd directories with given url
+crawler checks subdomains and directories with given url
+
+web_bruteforce allows you to test multiple passwords agaisnt a know username
+! setup proxies to switch between ip's
+! use sleep command to prevent to much noise
+! find username or email by using recover my password and try until it says account is found
 
 spider recursively checks root directory for all links hosted by server
 
