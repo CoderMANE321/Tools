@@ -19,9 +19,12 @@ download_execute_report and wifi pass both report passwords to your email on win
 keylogger allows you to log keystrokes and report adjustable lists of information
 
 backdoor simple reverse shell 
+
 !put exe in a archive to protect changes
 !use pyinstaller to diguise file with flags --add-data "path/to/fakefile", -- and --icon "path/to/icon" 
-!use chracter right to left overide and rename exectuable as "filename'fdp.exe'" and paste character over single quotes
+!use character right to left overide and rename exectuable as "filename'fdp.exe'" and paste character over single quotes
+
+crawler checks subdomains andd directories with given url
 
 bruteforce allows you to try 14 million common passwords over a network port
 
