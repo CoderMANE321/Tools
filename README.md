@@ -1,3 +1,5 @@
+!best to work from Linux in my opnion due to more control and options over operating system
+
 check your added exploits or custom malware at Nodistribute before running to bypass program checks
 
 creating a pensuite to run basic test for attack creation
@@ -25,6 +27,8 @@ backdoor simple reverse shell
 !use character right to left overide and rename exectuable as "filename'fdp.exe'" and paste character over single quotes
 
 crawler checks subdomains andd directories with given url
+
+spider recursively checks root directory for all links hosted by server
 
 bruteforce allows you to try 14 million common passwords over a network port
 
