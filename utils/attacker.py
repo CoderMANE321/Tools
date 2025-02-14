@@ -17,8 +17,12 @@ class ScriptLoader:
     # run python script
     def run_script(self):
         try:
-            print(f"Running script: {self.payload}")  
-            subprocess.run(["cmd", "/k", "python", "../modules/" + self.payload])  
+            print(f"Running script: {self.payload}")
+            result = subprocess.run([f"more ../modules/{self.payload}"],
+                                    shell=True,
+                                    capture_output=True,
+                                    text=True)
+            print(result.stdout)
         except Exception as e:
             print(f"Error: {e}")
 

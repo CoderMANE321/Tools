@@ -14,8 +14,9 @@ while True:
             print("No script loaded, loading scripts...")
             a.load_scripts()
             a.set_script()
+            a.run_script()
         else:
-            a.run_script(a.payload)
+            a.run_script()
     elif command == "list":
         if a.scripts == {}:
             a.load_scripts()
