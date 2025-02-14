@@ -1,14 +1,19 @@
-#!usr/bin/env/python
+#!/usr/bin/env/python
 
 import requests
+import sys
 
-target_url = "google.com"
+if len(sys.argv) < 2:
+    print("Usage: python script.py <target_url>")
+    sys.exit(1)
+
+target_url = sys.argv[1]
 """
     sends a request to the target url and crawls the website for subdomains and directories
 """
 def request(url):
     try:
-        return requests.get("http://" + url)
+        return requests.get("https://" + url)
     except requests.exceptions.ConnectionError:
         pass
 
