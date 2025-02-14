@@ -3,4 +3,6 @@
 crawler needs to handle SSL exceptions
 document all files more throughly
 make videos to show examples
-modularize files with 50 or more lines
+
+network scan done
+mac changer done
