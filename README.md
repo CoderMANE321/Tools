@@ -1,4 +1,4 @@
-!best to work from Linux in my opnion due to more control and options over operating system
+!best to work from virtual machine with Kali Linux distro in my opnion due to more control and options over operating system, WSL does not have low-level operations
 
 !check your added exploits or custom malware at Nodistribute before running to bypass program checks
 
