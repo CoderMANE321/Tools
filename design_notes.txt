@@ -7,3 +7,5 @@ make videos to show examples
 network scan done
 mac changer done
 spider done
+crawler done
+spoof_detector.py

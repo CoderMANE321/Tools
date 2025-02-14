@@ -18,8 +18,8 @@ while True:
             if arg.lower() == "y":
                 user_arg = input("Enter arg: ")
                 a.run_script(user_arg)
-        else:
-            a.run_script()
+            else:
+                a.run_script()
     elif command == "list":
         if a.scripts == {}:
             a.load_scripts()
