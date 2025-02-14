@@ -1,30 +1,40 @@
-#!usr/bin/env/python
+#!/usr/bin/env python
 
 import requests
 import re
-from urllib.parse import *
+from urllib.parse import urljoin
+import sys
 
-target_url = "https://root_directory/"
+
+if len(sys.argv) < 2:
+    print("Usage: python script.py <target_url>")
+    sys.exit(1)
+
+target_url = "https://" + sys.argv[1]
 target_links = []
+MAX_DEPTH = 3  # Limit recursion depth
 
 def get_links(url):
-    response = requests.get(url)
-    return re.findall('(?:href=")(.*?)"', response.content.decode(errors="ignore"))
+    try:
+        response = requests.get(url, timeout=5)
+        response.raise_for_status()  # Raises an error for bad responses (4xx, 5xx)
+        return re.findall(r'href=["\'](.*?)["\']', response.text)
+    except requests.RequestException as e:
+        print(f"[-] Error fetching {url}: {e}")
+        return []
 
+def crawl(url, depth=0):
+    if depth > MAX_DEPTH:
+        return
 
-def crawl(url):
     href_links = get_links(url)
     for link in href_links:
-        # link = urlparse(link)
-        # link = f"{link.scheme}://{link.netloc}{link.path}"
         link = urljoin(url, link)
         if "#" in link:
             link = link.split('#')[0]
         if target_url in link and link not in target_links:
             target_links.append(link)
             print(link)
-            # recursively searches fpr new links
-            crawl(link)
-
+            crawl(link, depth + 1)  # Increment depth
 
 crawl(target_url)

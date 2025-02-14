@@ -15,13 +15,19 @@ class ScriptLoader:
         self.payload = None
 
     # run python script
-    def run_script(self):
+    def run_script(self, arg=None):
         try:
             print(f"Running script: {self.payload}")
-            result = subprocess.run([f"more ../modules/{self.payload}"],
-                                    shell=True,
-                                    capture_output=True,
-                                    text=True)
+            if arg is None:
+                result = subprocess.run([f"python3 ../modules/{self.payload}"],
+                                        shell=True,
+                                        capture_output=True,
+                                        text=True)
+            else:
+                result = subprocess.run([f"python3 ../modules/{self.payload} {arg}"],
+                                        shell=True,
+                                        capture_output=True,
+                                        text=True)
             print(result.stdout)
         except Exception as e:
             print(f"Error: {e}")

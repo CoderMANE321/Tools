@@ -10,11 +10,14 @@ while True:
     elif command == "help":
         print("Help message")
     elif command == "execute":
-        if a.payload == None or a.scripts == {}:
+        if a.payload is None or a.scripts == {}:
             print("No script loaded, loading scripts...")
             a.load_scripts()
             a.set_script()
-            a.run_script()
+            arg = input("Does your script need an argument? Y/N")
+            if arg.lower() == "y":
+                user_arg = input("Enter arg: ")
+                a.run_script(user_arg)
         else:
             a.run_script()
     elif command == "list":
